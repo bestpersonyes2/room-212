@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room 212 Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .output {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-height: 60px;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .output.show {
+            display: block;
+        }
+        
+        .output p {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚪 Room 212</h1>
+        <p class="subtitle">Access Control System</p>
+        
+        <input 
+            type="text" 
+            id="nameInput" 
+            placeholder="What is your name?"
+            onkeypress="if(event.key === 'Enter') checkAccess()"
+        >
+        
+        <button onclick="checkAccess()">Check Access</button>
+        
+        <div id="output" class="output">
+            <p id="message"></p>
+        </div>
+    </div>
+    
+    <script>
+        function checkAccess() {
+            const name = document.getElementById('nameInput').value.toLowerCase().trim();
+            const output = document.getElementById('output');
+            const message = document.getElementById('message');
+            
+            let response = '';
+            
+            if (name === 'mr e') {
+                response = 'Hello mr epstein hahahahaha dylan loves u';
+            } else if (name === 'dylan') {
+                response = 'Sylan Dingh 212121212121212';
+            } else if (name === 'aryan') {
+                response = 'Shryan Auman your 212 access is granted';
+            } else if (name === 'gabriel') {
+                response = 'Welcome founder jig bustus';
+            } else if (name === '') {
+                response = 'Please enter a name!';
+            } else {
+                response = "Your not allowed into 212";
+            }
+            
+            message.textContent = response;
+            output.classList.add('show');
+        }
+    </script>
+</body>
+</html>
